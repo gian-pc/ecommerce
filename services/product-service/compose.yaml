@@ -1,0 +1,19 @@
+services:                              # lista de contenedores a levantar
+
+  mongodb:                             # nombre del contenedor de Mongo
+    image: mongo:8                     # imagen oficial de MongoDB versión 8
+    container_name: product-mongo      # nombre fijo para reconocerlo fácil
+    ports:
+      - "27017:27017"                  # puerto de tu Mac : puerto del contenedor
+    volumes:
+      - mongo-data:/data/db            # guarda los datos fuera del contenedor
+
+  redis:                               # nombre del contenedor de Redis
+    image: redis:8                     # imagen oficial de Redis versión 8
+    container_name: product-redis
+    ports:
+      - "6379:6379"                    # puerto de tu Mac : puerto del contenedor
+
+volumes:
+  mongo-data:                          # declara el volumen que usa Mongo
+  

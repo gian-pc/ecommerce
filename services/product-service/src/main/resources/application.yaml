@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: product-service
+  profiles:
+    active: dev
+  cache:
+    redis:
+      time-to-live: 10m
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true          # activa liveness y readiness también fuera de Kubernetes
+      group:
+        readiness:
+          include:             # lista YAML: un elemento por línea, sin ambigüedad
+            - readinessState
+            - mongo
+
+

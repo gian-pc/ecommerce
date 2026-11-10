@@ -1,0 +1,26 @@
+# Java / Maven: archivos compilados, se regeneran solos
+target/
+*.class
+
+# IntelliJ: configuración personal del IDE
+.idea/
+*.iml
+
+# Angular / Node: dependencias, se descargan con npm install
+node_modules/
+dist/
+.angular/
+
+# Terraform: estado y variables con datos de tu cuenta de Azure
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+
+# Sistema y secretos
+.DS_Store
+.env
+
+# Herramientas de IA locales
+.claude/
+.mcp.json

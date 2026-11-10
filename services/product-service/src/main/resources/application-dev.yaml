@@ -1,0 +1,11 @@
+spring:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://localhost:27017/productdb}
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+management:
+  endpoint:
+    health:
+      show-details: always    # muestra el estado de Mongo y Redis (solo en dev)
