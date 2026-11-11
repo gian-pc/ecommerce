@@ -1,5 +1,17 @@
 services:                              # lista de contenedores a levantar
 
+  product-service: # nombre del servicio = su dirección en la red
+    build: .                            # construye la imagen con el Dockerfile de esta carpeta
+    container_name: product-service
+    ports:
+      - "8081:8081"                     # para que Postman llegue desde tu Mac
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/productdb   # "mongodb" = nombre del servicio de Mongo
+      REDIS_HOST: redis                               # "redis" = nombre del servicio de Redis
+    depends_on: # arranca DESPUÉS de mongodb y redis
+      - mongodb
+      - redis
+
   mongodb:                             # nombre del contenedor de Mongo
     image: mongo:8                     # imagen oficial de MongoDB versión 8
     container_name: product-mongo      # nombre fijo para reconocerlo fácil
